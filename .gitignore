@@ -2,3 +2,6 @@
 /miscellaneous/dist
 /miscellaneous/.parcel-cache
 /.parcel-cache
+/FoodDeliveryApp/node_modules
+/FoodDeliveryApp/dist
+/FoodDeliveryApp/.parcel-cache
