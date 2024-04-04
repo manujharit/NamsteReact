@@ -1,8 +1,8 @@
 import ResCard from "./ResCard";
-import axios from "axios"
 import { useState, useEffect } from 'react'
 import Shimmer from "./Shimmer";
-import res from "../utils/mockData";
+import fetchWithProxy from "../utils/fetchProxy";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -15,18 +15,10 @@ const Body = () => {
   }, [])
 
   const fecthData = async () => {
-    // const res = await axios.get(
-    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.95250&lng=75.71050&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",{
-    //     headers:{'Access-Control-Allow-Origin': 'http://localhost:1234'}
-    //   }
-    // )
-    // const dataJson = JSON.parse(data)
-    // setRestaurants(dataJson?.data?.cards.filter((card)=> card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
-    //   setFilteredRestaurants(dataJson?.data?.cards.filter((card)=> card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setTimeout(() => { 
-      setRestaurants(res?.data?.cards.filter((card)=> card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setFilteredRestaurants(res?.data?.cards.filter((card)=> card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
-    }, 1000)
+    const data = await fetchWithProxy("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9195875&lng=75.78796080000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    )
+    setRestaurants(data?.data?.cards.filter((card) => card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurants(data?.data?.cards.filter((card) => card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
 
   }
 
@@ -61,7 +53,7 @@ const Body = () => {
       </div>
       <br />
       <div className="res-container">
-        {filteredRestaurants.map(value => <ResCard key={value.info.id} resData={value.info} />)}
+        {filteredRestaurants.map(value => <Link key={value.info.id} to={`/restaurants/${value.info.id}`}><ResCard  resData={value.info} /></Link>)}
       </div>
     </div>
   )
