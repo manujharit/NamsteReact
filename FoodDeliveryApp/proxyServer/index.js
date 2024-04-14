@@ -22,7 +22,7 @@ app.get('/proxy', async (req, res) => {
     });
 
     // Send the response back to the client
-    res.json(await response.json());
+    res.status(200).json(await response.json());
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

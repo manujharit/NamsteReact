@@ -53,7 +53,7 @@ const Body = () => {
       </div>
       <br />
       <div className="res-container">
-        {filteredRestaurants.map(value => <Link key={value.info.id} to={`/restaurants/${value.info.id}`}><ResCard  resData={value.info} /></Link>)}
+        {filteredRestaurants.map(value =><ResCard key={value.info.id} resData={value.info} />)}
       </div>
     </div>
   )
