@@ -1,0 +1,12 @@
+{
+  "name": "namstereact",
+  "version": "1.0.0",
+  "description": "- Dev Build\r - Local Server\r - HMR = Hot module replacement\r - File Watching Algorithm - written by c++\r - Faster Build bcoz of Caching\r - Image Optimization\r - Minification of file (bundling)\r - Compressing\r - Consistent Hashing \r - Code splitting\r - Differential bundling - to support older browsers\r - Diagnostics\r - Error handling\r - https\r - Tree Shaking - remove unused code\r - Differect dev and prod bundles",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd FoodDeliveryApp && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
