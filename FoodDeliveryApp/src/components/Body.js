@@ -2,8 +2,8 @@ import ResCard from "./ResCard";
 import { useState, useEffect } from 'react'
 import Shimmer from "./Shimmer";
 import fetchWithProxy from "../utils/fetchProxy";
-import { Link } from "react-router-dom";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
+import Offline from "./Offline";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([])
@@ -38,7 +38,8 @@ const Body = () => {
     )
   }
 
-
+  const onlineStatus = useOnlineStatus()
+  if (onlineStatus === false) return <Offline />
   return !restaurants.length ? <Shimmer /> : (
     <div className="body">
       <br />
@@ -53,7 +54,7 @@ const Body = () => {
       </div>
       <br />
       <div className="res-container">
-        {filteredRestaurants.map(value =><ResCard key={value.info.id} resData={value.info} />)}
+        {filteredRestaurants.map(value => <ResCard key={value.info.id} resData={value.info} />)}
       </div>
     </div>
   )
