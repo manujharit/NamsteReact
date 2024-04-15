@@ -43,17 +43,17 @@ const Body = () => {
   return !restaurants.length ? <Shimmer /> : (
     <div className="body">
       <br />
-      <div className="filter">
-        <div className="search">
-          <input type="text" className="search-box" value={searchText} onChange={(e) => { handleSearchTextChange(e) }} />
-          <button onClick={() => {
+      <div className="flex">
+        <div className="search m-4 p-4">
+          <input type="text" className="border border-solid border-black" value={searchText} onChange={(e) => { handleSearchTextChange(e) }} />
+          <button className="px-4 py-2 bg-green-100 m-4 border border-solid rounded-lg" onClick={() => {
             searchRestaurants()
           }}>Search</button>
         </div>
-        <button className="filter-btn" onClick={() => { filterRestaurants() }} >Top Rated Restaurants</button>
+        <button className="px-4 py-2 bg-gray-100 m-4 " onClick={() => { filterRestaurants() }} >Top Rated Restaurants</button>
       </div>
       <br />
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map(value => <ResCard key={value.info.id} resData={value.info} />)}
       </div>
     </div>
