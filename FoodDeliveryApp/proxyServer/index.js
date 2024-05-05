@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
- 
+
 
 const app = express();
 app.use(cors());
@@ -13,7 +13,7 @@ app.get('/proxy', async (req, res) => {
     if (!url) {
       throw new Error('URL parameter is missing');
     }
-
+    // console.log('Calling', url)
     // Fetch data from the specified URL
     const response = await fetch(url, {
       headers: {
@@ -22,10 +22,12 @@ app.get('/proxy', async (req, res) => {
     });
 
     // Send the response back to the client
-    res.status(200).json(await response.json());
+    const data = await response.json()
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+  // console.log(res)
 });
 
 // Start the server

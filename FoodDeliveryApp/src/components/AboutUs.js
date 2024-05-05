@@ -1,3 +1,4 @@
+import UserContext from "../utils/userContext";
 import User from "./User"
 import UserClass from "./UserClass"
 import React from 'react'
@@ -16,16 +17,19 @@ class AboutUs extends React.Component {
         // console.log("Parent Render")
         return (
             <div>
-            <h1>
-                About Us
-            </h1>
-            <br />
-            <h3>
-                This is a about us page
-            </h3>
-            <br />
-            <UserClass name={"Manuj Harit"} />
-        </div>
+                <h1>
+                    About Us
+                </h1>
+                <br />
+                <h2>
+                    LoggedIn User : <UserContext.Consumer>{(data)=> <b>{data.loggedInUser}</b>}</UserContext.Consumer>
+                </h2>
+                <h3>
+                    This is a about us page
+                </h3>
+                <br />
+                <UserClass name={"Manuj Harit"} />
+            </div>
         )
     }
 }
