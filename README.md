@@ -17,3 +17,11 @@
 - https
 - Tree Shaking - remove unused code
 - Differect dev and prod bundles
+
+
+# Redux
+    - Build store
+    - Connect store
+    - Slice
+    - dispatch(action)
+    - selector

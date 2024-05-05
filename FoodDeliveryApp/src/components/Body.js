@@ -17,7 +17,7 @@ const Body = () => {
 
   const fecthData = async () => {
     const data = await fetchWithProxy("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.95250&lng=75.71050&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-    console.log(data?.data?.cards/*.filter((card) => card?.card?.card?.id === "top_brands_for_you")[0]/*.card?.card?.gridElements?.infoWithStyle?.restaurants*/)
+    // console.log(data?.data?.cards/*.filter((card) => card?.card?.card?.id === "top_brands_for_you")[0]/*.card?.card?.gridElements?.infoWithStyle?.restaurants*/)
     setRestaurants(data?.data?.cards.filter((card) => card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestaurants(data?.data?.cards.filter((card) => card?.card?.card?.id === "top_brands_for_you")[0].card?.card?.gridElements?.infoWithStyle?.restaurants)
 

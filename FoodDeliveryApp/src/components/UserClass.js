@@ -14,7 +14,7 @@ class UserClass extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log('CompnenetDid Update:' + JSON.stringify(this.state.userInfo,2,null))
+        // console.log('CompnenetDid Update:' + JSON.stringify(this.state.userInfo,2,null))
     }
 
 
@@ -25,11 +25,11 @@ class UserClass extends React.Component {
         this.setState({
             userInfo: data
         })
-        console.log('ComponentDidMount')
+        // console.log('ComponentDidMount')
     }
 
     componentWillUnmount() {
-        console.log('ComponentWillUnmount')
+        // console.log('ComponentWillUnmount')
     }
     render() {
         // console.log(this.props.name + " Child Render")
